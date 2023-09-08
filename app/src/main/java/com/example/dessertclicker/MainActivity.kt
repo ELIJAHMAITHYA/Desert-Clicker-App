@@ -19,7 +19,9 @@ package com.example.dessertclicker
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
+import android.nfc.Tag
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -62,8 +64,9 @@ import androidx.core.content.ContextCompat
 import com.example.dessertclicker.data.Datasource
 import com.example.dessertclicker.model.Dessert
 import com.example.dessertclicker.ui.theme.DessertClickerTheme
-
+private const val Tag = "MainActivity"
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -77,6 +80,32 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        Log.d(Tag, "On create Callld")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(Tag, "OnStart Called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(Tag, "On resume called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(Tag, "On Pause called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(Tag, "On stop called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(Tag, "On destroy called")
     }
 }
 
